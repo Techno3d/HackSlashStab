@@ -11,9 +11,22 @@ config_version=5
 [application]
 
 config/name="HackSlashStab"
+run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [dotnet]
 
 project/assembly_name="HackSlashStab"
+
+[layer_names]
+
+2d_physics/layer_1="MainDagger"
+2d_physics/layer_2="OtherDaggers"
+2d_physics/layer_3="PowerUps"
+2d_physics/layer_4="Enemies"

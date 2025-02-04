@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://bxbuk5pvwhc6"]
+[gd_scene load_steps=3 format=3 uid="uid://bxbuk5pvwhc6"]
+
+[ext_resource type="PackedScene" uid="uid://b4ovmxlsvmdrh" path="res://Daggers/main_dagger.tscn" id="1_363uj"]
+[ext_resource type="Texture2D" uid="uid://vmna6wklc3bl" path="res://icon.svg" id="2_4up2x"]
 
 [node name="World" type="Node2D"]
+
+[node name="WorldBorders" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldBorders"]
+build_mode = 1
+polygon = PackedVector2Array(0, 0, 1920, 0, 1920, 1920, 0, 1920)
+
+[node name="MainDagger" parent="." instance=ExtResource("1_363uj")]
+position = Vector2(645, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-68, 980.5)
+scale = Vector2(1, 15.2734)
+texture = ExtResource("2_4up2x")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(2005, 949)
+scale = Vector2(1, 14.7813)
+texture = ExtResource("2_4up2x")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(959.536, -67.0013)
+rotation = 1.57079
+scale = Vector2(1, 14.9459)
+texture = ExtResource("2_4up2x")

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4ovmxlsvmdrh"]
+
+[ext_resource type="Script" path="res://Daggers/main_dagger.gd" id="1_olwdn"]
+[ext_resource type="Texture2D" uid="uid://6v03p4xgd66a" path="res://assets/ArrowHead.svg" id="2_us1fi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8iov"]
+size = Vector2(42, 103)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u3p5t"]
+size = Vector2(2, 2)
+
+[node name="MainDagger" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_olwdn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_l8iov")
+
+[node name="DaggerSprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0.841485, 0.138738, 1)
+position = Vector2(-0.75, 0.5)
+scale = Vector2(-19.5, 51)
+texture = SubResource("PlaceholderTexture2D_u3p5t")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="ArrowSprite" type="Sprite2D" parent="Pivot"]
+position = Vector2(100, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_us1fi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
