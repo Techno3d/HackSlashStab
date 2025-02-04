@@ -1,11 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxbuk5pvwhc6"]
+[gd_scene load_steps=9 format=3 uid="uid://bxbuk5pvwhc6"]
 
 [ext_resource type="PackedScene" uid="uid://b4ovmxlsvmdrh" path="res://Daggers/main_dagger.tscn" id="1_363uj"]
 [ext_resource type="Texture2D" uid="uid://vmna6wklc3bl" path="res://icon.svg" id="2_4up2x"]
+[ext_resource type="PackedScene" uid="uid://cix0n7j2efk5d" path="res://PowerUps/base_power_up.tscn" id="3_b80m3"]
+[ext_resource type="Script" path="res://PowerUps/create_daggers.gd" id="4_gns0o"]
+[ext_resource type="PackedScene" uid="uid://cf2ykm317vmad" path="res://Daggers/Test.tscn" id="5_p26oh"]
+[ext_resource type="Script" path="res://PowerUps/slow_time_effect.gd" id="6_o5h4u"]
+
+[sub_resource type="Resource" id="Resource_ks37f"]
+script = ExtResource("4_gns0o")
+spawnable_blades = Array[PackedScene]([ExtResource("5_p26oh")])
+
+[sub_resource type="Resource" id="Resource_l8sap"]
+script = ExtResource("6_o5h4u")
+length = 3.0
+time_scale = 0.4
 
 [node name="World" type="Node2D"]
 
 [node name="WorldBorders" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 11
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldBorders"]
 build_mode = 1
@@ -14,18 +29,26 @@ polygon = PackedVector2Array(0, 0, 1920, 0, 1920, 1920, 0, 1920)
 [node name="MainDagger" parent="." instance=ExtResource("1_363uj")]
 position = Vector2(645, 360)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Wall1" type="Sprite2D" parent="."]
 position = Vector2(-68, 980.5)
 scale = Vector2(1, 15.2734)
 texture = ExtResource("2_4up2x")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Wall2" type="Sprite2D" parent="."]
 position = Vector2(2005, 949)
 scale = Vector2(1, 14.7813)
 texture = ExtResource("2_4up2x")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="Wall3" type="Sprite2D" parent="."]
 position = Vector2(959.536, -67.0013)
 rotation = 1.57079
 scale = Vector2(1, 14.9459)
 texture = ExtResource("2_4up2x")
+
+[node name="BasePowerUp" parent="." instance=ExtResource("3_b80m3")]
+position = Vector2(933, 427)
+effect = SubResource("Resource_ks37f")
+
+[node name="BasePowerUp2" parent="." instance=ExtResource("3_b80m3")]
+position = Vector2(803, 243)
+effect = SubResource("Resource_l8sap")

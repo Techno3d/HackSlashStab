@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cix0n7j2efk5d"]
+
+[ext_resource type="Script" path="res://PowerUps/use_power_up.gd" id="1_x0xvi"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uverd"]
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2m6h1"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7eh2l"]
+size = Vector2(52, 52)
+
+[node name="BasePowerUp" type="Sprite2D"]
+texture = SubResource("PlaceholderTexture2D_uverd")
+script = ExtResource("1_x0xvi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_2m6h1")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_7eh2l")
