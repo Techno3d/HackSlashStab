@@ -1,9 +1,11 @@
 extends CharacterBody2D
+class_name MainDagger
 
 @export var rotation_time: float = 0.5
 
 var speed: float = 1200.0
 var vel_dir: Vector2 = Vector2.ZERO
+var controller_vel_dir: Vector2 = Vector2.ZERO
 @onready var viewport: Viewport = get_tree().root.get_viewport()
 @onready var sprite: Sprite2D = $DaggerSprite
 @onready var pivot: Node2D = $Pivot
@@ -17,8 +19,12 @@ func _unhandled_input(event):
 		var m_event: InputEventMouseButton = event as InputEventMouseButton
 		if !m_event.pressed and m_event.button_index == MOUSE_BUTTON_LEFT:
 			var direction: Vector2 = m_event.position - viewport.get_visible_rect().size/2.0
-			vel_dir = direction.normalized()
+			if direction.length_squared() != 0:
+				vel_dir = direction.normalized()
 			set_sprite_angle()
+	if event.is_action_released("controller_click") && controller_vel_dir.length_squared()!=0:
+		vel_dir = controller_vel_dir.normalized()
+		set_sprite_angle()
 
 func _physics_process(delta):
 	var collision: KinematicCollision2D = move_and_collide(vel_dir*speed*delta)
@@ -26,12 +32,16 @@ func _physics_process(delta):
 		vel_dir = vel_dir.bounce(collision.get_normal())
 		set_sprite_angle()
 
-func _process(delta):
+func _process(_delta):
+	controller_vel_dir = Input.get_vector("controller_left", "controller_right", "controller_up", "controller_down")
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		pivot.show()
 		var dir = viewport.get_mouse_position() - viewport.get_visible_rect().size/2.0
 		dir = dir.normalized()
 		pivot.rotation = atan2(dir.y, dir.x)
+	elif controller_vel_dir.length_squared() > 0:
+		pivot.show()
+		pivot.rotation = atan2(controller_vel_dir.y, controller_vel_dir.x)
 	else:
 		pivot.hide()
 

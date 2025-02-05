@@ -1,20 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxbuk5pvwhc6"]
+[gd_scene load_steps=11 format=3 uid="uid://bxbuk5pvwhc6"]
 
 [ext_resource type="PackedScene" uid="uid://b4ovmxlsvmdrh" path="res://Daggers/main_dagger.tscn" id="1_363uj"]
 [ext_resource type="Texture2D" uid="uid://vmna6wklc3bl" path="res://icon.svg" id="2_4up2x"]
 [ext_resource type="PackedScene" uid="uid://cix0n7j2efk5d" path="res://PowerUps/base_power_up.tscn" id="3_b80m3"]
 [ext_resource type="Script" path="res://PowerUps/create_daggers.gd" id="4_gns0o"]
-[ext_resource type="PackedScene" uid="uid://cf2ykm317vmad" path="res://Daggers/Test.tscn" id="5_p26oh"]
+[ext_resource type="PackedScene" uid="uid://bsb5iyhuukfts" path="res://Daggers/sword.tscn" id="6_1858e"]
 [ext_resource type="Script" path="res://PowerUps/slow_time_effect.gd" id="6_o5h4u"]
 
 [sub_resource type="Resource" id="Resource_ks37f"]
 script = ExtResource("4_gns0o")
-spawnable_blades = Array[PackedScene]([ExtResource("5_p26oh")])
+spawnable_blades = Array[PackedScene]([ExtResource("6_1858e")])
 
 [sub_resource type="Resource" id="Resource_l8sap"]
 script = ExtResource("6_o5h4u")
 length = 3.0
 time_scale = 0.4
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_eeo4l"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqnl3"]
+size = Vector2(110, 110)
 
 [node name="World" type="Node2D"]
 
@@ -52,3 +58,14 @@ effect = SubResource("Resource_ks37f")
 [node name="BasePowerUp2" parent="." instance=ExtResource("3_b80m3")]
 position = Vector2(803, 243)
 effect = SubResource("Resource_l8sap")
+
+[node name="TestThing" type="Sprite2D" parent="."]
+position = Vector2(612, 193)
+texture = SubResource("PlaceholderTexture2D_eeo4l")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TestThing"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestThing/StaticBody2D"]
+shape = SubResource("RectangleShape2D_iqnl3")

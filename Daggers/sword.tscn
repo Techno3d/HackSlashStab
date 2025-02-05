@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsb5iyhuukfts"]
+
+[ext_resource type="Script" path="res://Daggers/sword.gd" id="1_10hvd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy57k"]
+size = Vector2(32, 82)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n0o2j"]
+size = Vector2(30, 80)
+
+[node name="Sword" type="AnimatableBody2D"]
+collision_layer = 2
+collision_mask = 27
+sync_to_physics = false
+script = ExtResource("1_10hvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fy57k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.309022, 0.270427, 0.0905439, 1)
+texture = SubResource("PlaceholderTexture2D_n0o2j")
+
+[node name="RayCast2D" type="RayCast2D" parent="Sprite2D"]
+target_position = Vector2(0, -144)
+collision_mask = 8
