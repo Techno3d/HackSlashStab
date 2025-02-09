@@ -1,4 +1,7 @@
 extends RigidBody2D
+class_name Enemy
+
+signal enemy_died
 
 var health: float = 40
 
