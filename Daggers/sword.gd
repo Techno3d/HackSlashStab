@@ -5,7 +5,7 @@ extends AnimatableBody2D
 @export var rotation_time: float = 0.5
 
 var vel_dir: Vector2 = Vector2.ZERO
-var speed: float = 120.0
+var speed: float = 1200.0
 var decel: float = -10
 var is_swinging: bool = false
 

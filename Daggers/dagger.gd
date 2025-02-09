@@ -9,6 +9,8 @@ var decel: float = -10
 
 func _physics_process(delta):
 	speed -= decel*delta
+	if(speed <= 0):
+		queue_free()
 	var collision = move_and_collide(vel_dir*speed*delta)
 	if collision:
 		vel_dir = vel_dir.bounce(collision.get_normal())

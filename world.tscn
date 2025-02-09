@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxbuk5pvwhc6"]
+[gd_scene load_steps=9 format=3 uid="uid://bxbuk5pvwhc6"]
 
 [ext_resource type="PackedScene" uid="uid://b4ovmxlsvmdrh" path="res://Daggers/main_dagger.tscn" id="1_363uj"]
 [ext_resource type="Texture2D" uid="uid://vmna6wklc3bl" path="res://icon.svg" id="2_4up2x"]
@@ -15,12 +15,6 @@ spawnable_blades = Array[PackedScene]([ExtResource("6_1858e")])
 script = ExtResource("6_o5h4u")
 length = 3.0
 time_scale = 0.4
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_eeo4l"]
-size = Vector2(100, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqnl3"]
-size = Vector2(110, 110)
 
 [node name="World" type="Node2D"]
 
@@ -51,6 +45,12 @@ rotation = 1.57079
 scale = Vector2(1, 14.9459)
 texture = ExtResource("2_4up2x")
 
+[node name="Wall4" type="Sprite2D" parent="."]
+position = Vector2(959.536, 1984)
+rotation = 1.57079
+scale = Vector2(1, 14.9459)
+texture = ExtResource("2_4up2x")
+
 [node name="BasePowerUp" parent="." instance=ExtResource("3_b80m3")]
 position = Vector2(933, 427)
 effect = SubResource("Resource_ks37f")
@@ -58,14 +58,3 @@ effect = SubResource("Resource_ks37f")
 [node name="BasePowerUp2" parent="." instance=ExtResource("3_b80m3")]
 position = Vector2(803, 243)
 effect = SubResource("Resource_l8sap")
-
-[node name="TestThing" type="Sprite2D" parent="."]
-position = Vector2(612, 193)
-texture = SubResource("PlaceholderTexture2D_eeo4l")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="TestThing"]
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestThing/StaticBody2D"]
-shape = SubResource("RectangleShape2D_iqnl3")
