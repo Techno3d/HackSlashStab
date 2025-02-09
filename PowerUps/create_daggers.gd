@@ -12,7 +12,7 @@ func add_blade(powerup: Node2D, position: Vector2, normal: Vector2):
     new_blade.position = position
     var angle = atan2(normal.y, normal.x)
     var vel_dir: Vector2
-    vel_dir = Vector2(cos(angle-PI/4), sin(angle-PI/4))
+    vel_dir = Vector2(cos(angle+PI), sin(angle+PI))
     powerup.get_parent().add_child(new_blade)
     if new_blade.has_method("set_vel_dir"):
         new_blade.set_vel_dir(vel_dir)
