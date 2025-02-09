@@ -14,6 +14,7 @@ var controller_vel_dir: Vector2 = Vector2.ZERO
 func _ready():
 	viewport.size_changed.connect(func(): viewport = get_tree().root.get_viewport())
 	pivot.visible = false;
+	# SignalBus.black_hole_spawned.connect(gravitation_pull)
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -56,3 +57,9 @@ func set_sprite_angle():
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TransitionType.TRANS_EXPO)
 	tween.tween_property(sprite, "rotation", PI/2.0+angle, rotation_time)
+
+func gravitation_pull(pos: Vector2, pull_time: float):
+	var dist = (pos-position).length()
+	var dir = (pos - position).normalized()
+	vel_dir = vel_dir.lerp(dir, clampf(20.0/dist, 0, 1))
+	set_sprite_angle()

@@ -8,6 +8,9 @@ var vel_dir: Vector2 = Vector2.ZERO
 var speed: float = 1200.0
 var decel: float = -10
 
+func _ready():
+	SignalBus.black_hole_spawned.connect(gravitation_pull)
+
 func _physics_process(delta):
 	speed -= decel*delta
 	if(speed <= 0):
@@ -31,3 +34,9 @@ func set_sprite_angle():
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TransitionType.TRANS_EXPO)
 	tween.tween_property(sprite, "rotation", PI/2.0+angle, rotation_time)
+
+func gravitation_pull(pos: Vector2, pull_time: float):
+	var dist = (pos-position).length()
+	var dir = (pos - position).normalized()
+	vel_dir = vel_dir.lerp(dir, clampf(20.0/dist, 0, 1))
+	set_sprite_angle()

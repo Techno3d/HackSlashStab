@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxr4cgxphskq6"]
+
+[ext_resource type="Script" path="res://PowerUps/black_hole_sprite.gd" id="1_nxfpc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i6qe3"]
+size = Vector2(70, 70)
+
+[node name="BlackHole" type="Sprite2D"]
+modulate = Color(0.0470588, 0, 0.219608, 1)
+texture = SubResource("PlaceholderTexture2D_i6qe3")
+script = ExtResource("1_nxfpc")
