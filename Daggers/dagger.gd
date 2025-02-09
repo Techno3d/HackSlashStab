@@ -2,6 +2,7 @@ extends AnimatableBody2D
 
 @onready var sprite = $Sprite2D
 @export var rotation_time: float = 0.5
+@export var damage: float = 5
 
 var vel_dir: Vector2 = Vector2.ZERO
 var speed: float = 1200.0
@@ -15,6 +16,9 @@ func _physics_process(delta):
 	if collision:
 		vel_dir = vel_dir.bounce(collision.get_normal())
 		set_sprite_angle()
+		if(collision.get_collider().has_method("damage")):
+			collision.get_collider().damage(damage)
+			move_and_collide(vel_dir*5);
 
 func set_vel_dir(new_dir: Vector2):
 	vel_dir = new_dir

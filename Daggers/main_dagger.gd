@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name MainDagger
 
 @export var rotation_time: float = 0.5
+@export var damage: float = 10
 
 var speed: float = 1200.0
 var vel_dir: Vector2 = Vector2.ZERO
@@ -31,6 +32,9 @@ func _physics_process(delta):
 	if collision:
 		vel_dir = vel_dir.bounce(collision.get_normal())
 		set_sprite_angle()
+		if(collision.get_collider().has_method("damage")):
+			collision.get_collider().damage(damage)
+			move_and_collide(vel_dir*5);
 
 func _process(_delta):
 	controller_vel_dir = Input.get_vector("controller_left", "controller_right", "controller_up", "controller_down")

@@ -1,9 +1,13 @@
-extends AnimatableBody2D
+extends RigidBody2D
 
+var health: float = 40
 
 func _ready():
-	pass # Replace with function body.
+	linear_velocity = Vector2.RIGHT*400
+	pass 
 
-
-func _process(delta):
-	pass
+func damage(num: float):
+	health -= num
+	print("a")
+	if(health <= 0):
+		queue_free()

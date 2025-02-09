@@ -10,7 +10,7 @@ func add_blade(powerup: Node2D, position: Vector2, normal: Vector2):
     var blade_scene: PackedScene = spawnable_blades.pick_random()
     var new_blade: Node2D = blade_scene.instantiate()
     new_blade.position = position
-    var angle = atan2(normal.y, normal.x)
+    var angle = abs(atan2(normal.y, normal.x))
     var vel_dir: Vector2
     if 0 < angle and angle <= PI/2:
         vel_dir = Vector2(cos(3*PI/4), sin(3*PI/4))
