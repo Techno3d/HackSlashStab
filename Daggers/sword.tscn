@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsb5iyhuukfts"]
+[gd_scene load_steps=5 format=3 uid="uid://bsb5iyhuukfts"]
 
 [ext_resource type="Script" path="res://Daggers/sword.gd" id="1_10hvd"]
 
@@ -7,6 +7,9 @@ size = Vector2(32, 82)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n0o2j"]
 size = Vector2(30, 80)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_im3cy"]
+radius = 117.614
 
 [node name="Sword" type="AnimatableBody2D"]
 collision_layer = 2
@@ -24,3 +27,10 @@ texture = SubResource("PlaceholderTexture2D_n0o2j")
 [node name="RayCast2D" type="RayCast2D" parent="Sprite2D"]
 target_position = Vector2(0, -144)
 collision_mask = 8
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_im3cy")

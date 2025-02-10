@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name MainDagger
 
+static var instance: MainDagger
+
 @export var rotation_time: float = 0.5
 @export var damage: float = 10
 
@@ -14,6 +16,7 @@ var controller_vel_dir: Vector2 = Vector2.ZERO
 func _ready():
 	viewport.size_changed.connect(func(): viewport = get_tree().root.get_viewport())
 	pivot.visible = false;
+	instance = self
 	# SignalBus.black_hole_spawned.connect(gravitation_pull)
 
 func _unhandled_input(event):

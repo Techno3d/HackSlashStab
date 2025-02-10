@@ -8,4 +8,4 @@ func _ready():
 
 func _process(delta):
 	rotate(PI/2*delta)
-	SignalBus.black_hole_spawned.emit(position, pull_time)
+	SignalBus.black_hole_spawned.emit(global_position, pull_time)

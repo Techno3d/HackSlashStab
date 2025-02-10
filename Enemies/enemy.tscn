@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3co5fxwmhxsr"]
+[gd_scene load_steps=5 format=3 uid="uid://c3co5fxwmhxsr"]
 
 [ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_er8cg"]
 
@@ -8,9 +8,12 @@ size = Vector2(100, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bqy3"]
 size = Vector2(104, 104)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atuu0"]
+size = Vector2(114, 114)
+
 [node name="Enemy" type="RigidBody2D"]
 collision_layer = 8
-collision_mask = 27
+collision_mask = 59
 gravity_scale = 0.0
 script = ExtResource("1_er8cg")
 
@@ -19,3 +22,14 @@ texture = SubResource("PlaceholderTexture2D_lbmth")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2bqy3")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 40
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_atuu0")

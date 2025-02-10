@@ -28,6 +28,10 @@ window/size/viewport_height=720
 
 project/assembly_name="HackSlashStab"
 
+[global_group]
+
+Crystals="If these die, you lose"
+
 [input]
 
 controller_left={
@@ -67,3 +71,4 @@ controller_click={
 2d_physics/layer_3="PowerUps"
 2d_physics/layer_4="Enemies"
 2d_physics/layer_5="Wall"
+2d_physics/layer_6="Crystal"

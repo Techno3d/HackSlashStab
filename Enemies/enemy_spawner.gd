@@ -11,7 +11,6 @@ var time: float = 0
 func _ready():
 	pass 
 
-
 func _process(delta):
 	sprite.rotate(PI/2*delta)
 	time += delta

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://baydlads15n2j"]
+
+[ext_resource type="Script" path="res://Crystal/crystal.gd" id="1_3swr0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8rn5v"]
+radius = 152.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5v51p"]
+
+[node name="Crystal" type="StaticBody2D" groups=["Crystals"]]
+position = Vector2(1048, 1068)
+script = ExtResource("1_3swr0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8rn5v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.40667e-05, 0.999968)
+scale = Vector2(237, 244)
+texture = SubResource("PlaceholderTexture2D_5v51p")
