@@ -2,7 +2,7 @@ extends EffectBase
 class_name SpawnBlackHoleEffect
 
 var black_hole_sprite = preload("res://PowerUps/black_hole.tscn")
-@export var pull_time: float = 0.8
+@export var pull_time: float = 3.5
 
 func effect(powerup: Node2D, position: Vector2, _normal: Vector2):
     var sprite = black_hole_sprite.instantiate()

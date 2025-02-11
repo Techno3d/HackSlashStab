@@ -33,10 +33,6 @@ collision_mask = 11
 build_mode = 1
 polygon = PackedVector2Array(0, 0, 1920, 0, 1920, 1920, 0, 1920)
 
-[node name="MainDagger" parent="." instance=ExtResource("1_363uj")]
-position = Vector2(645, 360)
-collision_mask = 28
-
 [node name="Wall1" type="Sprite2D" parent="."]
 position = Vector2(-68, 980.5)
 scale = Vector2(1, 15.2734)
@@ -72,9 +68,15 @@ position = Vector2(380, 510)
 effect = SubResource("Resource_m28pf")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("8_6lnb8")]
-position = Vector2(209, 136)
+position = Vector2(349, 822)
+max_num_enemies = 10
+time_limit = 0.5
 
 [node name="Crystal" parent="." instance=ExtResource("9_pvjvv")]
 collision_layer = 32
 collision_mask = 0
 health = 400.0
+
+[node name="MainDagger" parent="." instance=ExtResource("1_363uj")]
+position = Vector2(645, 360)
+collision_mask = 28

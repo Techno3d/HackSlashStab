@@ -31,6 +31,7 @@ project/assembly_name="HackSlashStab"
 [global_group]
 
 Crystals="If these die, you lose"
+Enemies="Enemies"
 
 [input]
 
