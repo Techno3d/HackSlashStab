@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SlowTImeEffect" load_steps=2 format=3 uid="uid://dol8duv0iasxs"]
+
+[ext_resource type="Script" path="res://PowerUps/slow_time_effect.gd" id="1_7sda2"]
+
+[resource]
+script = ExtResource("1_7sda2")
+length = 3.0
+time_scale = 0.4

@@ -52,12 +52,15 @@ func _physics_process(delta):
 
 func find_nearest() -> Crystal:
 	var nearest: Crystal = get_tree().get_first_node_in_group("Crystals")
+	var second_nearest: Crystal = get_tree().get_first_node_in_group("Crystals")
+
 	if nearest == null:
 		return null
 	for crystal: Crystal in get_tree().get_nodes_in_group("Crystals"):
 		if nearest.position.distance_squared_to(position) > crystal.position.distance_squared_to(position):
+			second_nearest = nearest
 			nearest = crystal		
-	return nearest
+	return nearest if randf_range(0,1) < 0.8 else second_nearest
 
 func seperation(nearby_enemies: Array[Enemy]):
 	var dv: Vector2 = Vector2(0,0)

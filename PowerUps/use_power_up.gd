@@ -1,4 +1,4 @@
-extends Sprite2D
+class_name BasePowerup extends Sprite2D
 
 @export var effect: EffectBase
 @onready var collider: Area2D = $Area2D

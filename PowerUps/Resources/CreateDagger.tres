@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CreateDaggerEffect" load_steps=3 format=3 uid="uid://b562mo37mtcxa"]
+
+[ext_resource type="Script" path="res://PowerUps/create_daggers.gd" id="1_dbrgx"]
+[ext_resource type="PackedScene" uid="uid://bsb5iyhuukfts" path="res://Daggers/sword.tscn" id="2_2ktjd"]
+
+[resource]
+script = ExtResource("1_dbrgx")
+spawnable_blades = Array[PackedScene]([ExtResource("2_2ktjd"), ExtResource("2_2ktjd")])

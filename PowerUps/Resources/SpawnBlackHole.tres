@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SpawnBlackHoleEffect" load_steps=2 format=3 uid="uid://cypniv6vffvmq"]
+
+[ext_resource type="Script" path="res://PowerUps/black_hole.gd" id="1_c50aa"]
+
+[resource]
+script = ExtResource("1_c50aa")
+pull_time = 2.0
